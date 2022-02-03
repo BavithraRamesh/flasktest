@@ -5,7 +5,7 @@ import pyttsx3
 app = Flask(__name__)
 
 
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/start', methods = ['GET', 'POST'])
 def home():
 	if(request.method == 'GET'):
 		command = input("Shall we start")
