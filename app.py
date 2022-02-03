@@ -9,7 +9,10 @@ app = Flask(__name__)
 def home():
 	if(request.method == 'GET'):
 
-		r = sr.Recognizer()
+		command = input("Shall we start")
+		print(command)
+		if 'start' in command:
+			r = sr.Recognizer()
 		with sr.Microphone() as source:
 			r.adjust_for_ambient_noise(source, duration=1)
 			print("Listening.......")
@@ -25,7 +28,6 @@ def home():
 				print("can not recognize your voice")
 				return "None"
 			return text
-
 
 
 def say(text):
