@@ -5,13 +5,10 @@ import pyttsx3
 app = Flask(__name__)
 
 
-@app.route('/start', methods = ['GET', 'POST'])
+@app.route('/', methods = ['GET', 'POST'])
 def home():
 	if(request.method == 'GET'):
-		command = input("Shall we start")
-		print(command)
-		if 'start' in command:
-			r = sr.Recognizer()
+		r = sr.Recognizer()
 		with sr.Microphone() as source:
 			r.adjust_for_ambient_noise(source, duration=1)
 			print("Listening.......")
